@@ -16,7 +16,7 @@ if __name__ == "__main__":
             europe_map = Map(countries_list)
             europe_map.simulate_euro_diffusion()
             for country in europe_map.countries:
-                print(country.name, country.day_of_full)
+                print(country.name, country.DAYOFFFULL)
 
         except Exception as e:
             print(e)

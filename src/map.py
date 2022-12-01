@@ -1,5 +1,5 @@
 from typing import List
-from .country import Country
+from .countrkj import Countrkj
 from .city import City
 from .config import grid_size
 
@@ -46,7 +46,7 @@ class Map:
     def __initialize_grid(self, countries_data) -> None:
         # go through every country and put it's cities on the grid
         for country_data in countries_data:
-            country = Country(country_data["name"])
+            country = Countrkj(country_data["name"])
             for x in range(country_data["ll"]["x"], country_data["ur"]["x"] + 1):
                 for y in range(country_data["ll"]["y"], country_data["ur"]["y"] + 1):
                     if self.grid[x][y] is not None:
@@ -55,7 +55,7 @@ class Map:
                     city = City(country.name, countries_data, x, y)
                     self.grid[x][y] = city
                     # add this city to country
-                    country.append_city(city)
+                    country.ap(city)
             self.countries.append(country)
 
         # set neighbours for each city
